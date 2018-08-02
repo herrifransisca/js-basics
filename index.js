@@ -1,12 +1,15 @@
-// [] -> Array Literal
-let selectedColors = ['red', 'blue'];
-console.log(selectedColors);
+// function greet() {
+//   console.log('Hello World');
+// }
 
-// show the first element of array
-console.log(selectedColors[0]);
+// greet();
 
-// javascript is a dynamic language, the type of variables can change at runtime
-selectedColors[2] = 1;
+// name -> parameter
+function greet(name, lastName) {
+  console.log('Hello ' + name + ' ' + lastName);
+}
 
-// array = object (typeof selectedColors)
-console.log(selectedColors.length);
+// 'John' -> argument
+greet('John', 'Smith');
+
+// that's the difference between parameter and argument
