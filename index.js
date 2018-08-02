@@ -1,28 +1,12 @@
-let name = 'Mosh';
-let age = 30;
+// [] -> Array Literal
+let selectedColors = ['red', 'blue'];
+console.log(selectedColors);
 
-// {} -> it's called "Object Literal"
-let person = {
-  name: 'Mosh',
-  age: 30
-};
+// show the first element of array
+console.log(selectedColors[0]);
 
-console.log(person);
+// javascript is a dynamic language, the type of variables can change at runtime
+selectedColors[2] = 1;
 
-// there are TWO WAYS to change the name
-
-// 1. Dot Notation
-person.name = 'John';
-
-// 2. Bracket Notation
-// 'name' or "name" -> single code is more common
-person['name'] = 'John';
-
-console.log(person.name);
-
-// question: which one to use, dot notation or bracket notation ?
-// dot notation SHOULD BE YOUR DEFAULT CHOICE
-
-// bracket notation has it's own uses. when you don't know the name of the target property until the runtime
-let selection = 'name';
-person[selection] = 'John';
+// array = object (typeof selectedColors)
+console.log(selectedColors.length);
