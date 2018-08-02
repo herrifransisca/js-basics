@@ -1,8 +1,28 @@
-let name = 'Mosh'; // String Literal
-let age = 30; // Number Literal
-let isApproved = true; // Boolean Literal
+let name = 'Mosh';
+let age = 30;
 
-// let firstName; // if we don't initialize it, by default it's value is undefined
-let firstName = undefined; // we could explicitly defined as undefined BUT that's not very common
+// {} -> it's called "Object Literal"
+let person = {
+  name: 'Mosh',
+  age: 30
+};
 
-let selectedColor = null; // is used in situation when we wanna clear the value of variable, e.g. list of colors, if the user has no selection, we set 'null'. in the future if the user selects the color, we reassign this variable to a color like 'red'
+console.log(person);
+
+// there are TWO WAYS to change the name
+
+// 1. Dot Notation
+person.name = 'John';
+
+// 2. Bracket Notation
+// 'name' or "name" -> single code is more common
+person['name'] = 'John';
+
+console.log(person.name);
+
+// question: which one to use, dot notation or bracket notation ?
+// dot notation SHOULD BE YOUR DEFAULT CHOICE
+
+// bracket notation has it's own uses. when you don't know the name of the target property until the runtime
+let selection = 'name';
+person[selection] = 'John';
