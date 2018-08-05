@@ -1,28 +1,21 @@
-// 3 TYPES:
+// Falsy (false) values in JavaScript:
+// undefined
+// null
+// 0
+// false
+// ''
+// NaN (not a number)
 
-// Logical AND (&&)
-// Returns TRUE if both operands are TRUE
-console.log(true && true); // true
-console.log(false && true); // false
-// real world example:
-let highIncome = true;
-let goodCreditScore = true;
-let eligibleForLoan = highIncome && goodCreditScore;
-console.log(eligibleForLoan); // true
+// Anything that is not Falsy -> Truthy
 
-// Logical OR (||)
-// Returns TRUE if one of operands is TRUE
-// real world example:
-highIncome = false;
-goodCreditScore = true;
-eligibleForLoan = highIncome || goodCreditScore;
-console.log(eligibleForLoan); // true
+// Short-circuiting
 
-// NOT (!)
-// real world example:
-highIncome = false;
-goodCreditScore = false;
-eligibleForLoan = highIncome || goodCreditScore;
-console.log('Eligible', eligibleForLoan); // false
-let applicationRefused = !eligibleForLoan;
-console.log('Application Refused', applicationRefused);
+// Real-world example:
+let userColor = 'red';
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+console.log(currentColor); // red
+
+userColor = undefined;
+currentColor = userColor || defaultColor;
+console.log(currentColor); // blue
