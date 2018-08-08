@@ -1,13 +1,5 @@
-let a = 'red';
-let b = 'blue';
+let hour = 20;
 
-console.log(a); // red
-console.log(b); // blue
-
-// exercise, how to swap the value between a and b:
-let c = a;
-a = b;
-b = c;
-
-console.log(a); // blue
-console.log(b); // red
+if (hour >= 6 && hour < 12) console.log('Good Morning');
+else if (hour >= 12 && hour < 18) console.log('Good Afternoon');
+else console.log('Good Evening');
