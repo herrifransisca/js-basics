@@ -1,34 +1,21 @@
-// Speed Limit = 70;
-// 5 -> 1
-// Math.floor(1.3)
-// 12 points -> suspended
-
-checkSpeed(120);
+showNumbers(10);
 
 // Mosh's code:
-function checkSpeed(speed) {
-  const speedLimit = 70;
-  const kmPerPoint = 5;
+function showNumbers(limit) {
+  for (let i = 0; i <= limit; i++) {
+    // cleaner and less noisy
+    const message = i % 2 === 0 ? 'EVEN' : 'ODD';
+    console.log(i, message);
 
-  if (speed < speedLimit + kmPerPoint) {
-    console.log('Ok');
-    return;
+    // if (i % 2 === 0) console.log(i, 'EVEN');
+    // else console.log(i, 'ODD');
   }
-
-  const points = Math.floor((speed - speedLimit) / kmPerPoint);
-  if (points >= 12) console.log('License suspended');
-  else console.log('Point: ', points);
 }
 
 // Herri's code:
-// function checkSpeed(speed) {
-//   const speedLimit = 70;
-//   const suspendedPoint = 12;
-
-//   let point = Math.floor((speed - speedLimit) / 5);
-//   let isSuspended = point >= suspendedPoint;
-
-//   if (isSuspended) console.log('License suspended');
-//   else if (point > 0) console.log('Point: ' + point);
-//   else console.log('Ok');
+// function showNumbers(limit) {
+//   for (let i = 0; i <= limit; i++) {
+//     let type = i % 2 === 0 ? 'EVEN' : 'ODD';
+//     console.log(i, type);
+//   }
 // }
