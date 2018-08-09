@@ -1,5 +1,21 @@
-let hour = 20;
+let role = 'guest';
 
-if (hour >= 6 && hour < 12) console.log('Good Morning');
-else if (hour >= 12 && hour < 18) console.log('Good Afternoon');
-else console.log('Good Evening');
+switch (role) {
+  case 'guest':
+    console.log('Guest User');
+    break;
+
+  case 'moderator':
+    console.log('Moderator User');
+    break;
+
+  default:
+    console.log('Unknown User');
+}
+
+// using if else is more cleaner than switch case
+// mosh personaly tend to use if else more often.
+//      switch case is kind of outdated and look a little bit ugly in mosh personal opinion
+if (role === 'guest') console.log('Guest User');
+else if (role === 'moderator') console.log('Moderator User');
+else console.log('Unknown User');
