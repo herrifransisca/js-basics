@@ -1,16 +1,18 @@
-let i = 0;
-while (i < 5) {
-  console.log(i);
-  // i++;
-}
+// for
+// while
+// do-while
 
-while (true) {}
+// for-in
+const person = {
+  name: 'Mosh',
+  age: 30
+};
 
-let x = 0;
-do {
-  // x++;
-} while (x < 5);
+for (let key in person) console.log(key, person[key]);
+// Dot Notation = person.name;
+// Bracket Notation = person['name'];
 
-do {} while (true);
-
-for (let i = 0; i > 0; i++) {}
+// for-in is NOT IDEAL for ARRAY
+// for-of is IDEAL for ARRAY (since ECMASCRIPT 6)
+const colors = ['red', 'green', 'blue'];
+for (let index in colors) console.log(index, colors[index]);
