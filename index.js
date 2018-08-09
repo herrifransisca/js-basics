@@ -1,10 +1,20 @@
-console.log(isLandscape(300, 600));
+// Divisible by 3 => Fizz
+// Divisible by 5 => Buzz
+// Divisible by both 3 and 5 => FizzBuzz
+// Not Divisible by 3 or 5 => input
+// Not a number => 'Not a number'
 
-function isLandscape(width, height) {
-  // if (width > height) return true;
-  // return false;
+const output = fizzBuzz(true);
+console.log(output);
 
-  // return (width > height) ? true : false;
+function fizzBuzz(input) {
+  if (typeof input !== 'number') return NaN;
 
-  return width > height;
+  if (input % 3 === 0 && input % 5 === 0) return 'FizzBuzz';
+
+  if (input % 3 === 0) return 'Fizz';
+
+  if (input % 5 === 0) return 'Buzz';
+
+  return input;
 }
