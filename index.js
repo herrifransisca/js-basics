@@ -1,22 +1,10 @@
-// Exercise:
-// write a function that takes two numbers
-// and return the maximum of the two.
+console.log(isLandscape(300, 600));
 
-let number = max(5, 7);
-console.log(number);
+function isLandscape(width, height) {
+  // if (width > height) return true;
+  // return false;
 
-function max(a, b) {
-  // if (a > b) return a;
-  // else return b;
+  // return (width > height) ? true : false;
 
-  // refactoring: remove else (because 'return b' is not executed, if 'return a' is executed)
-  // if (a > b) return a;
-  // return b;
-
-  // refactoring: using conditional operator
-  return a > b ? a : b;
+  return width > height;
 }
-
-// MOSH TIPS:
-// when writing code, FUNCTIONS, you should test your FUNCTIONS with different possible values
-// e.g. max(5, 7), max(7, 5), max(7, 7)
