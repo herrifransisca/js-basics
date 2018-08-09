@@ -1,27 +1,22 @@
-// BREAK and CONTINUE that CAN CHANGE how the LOOPS BEHAVE
-// applies to ALL KIND OF LOOPS
+// Exercise:
+// write a function that takes two numbers
+// and return the maximum of the two.
 
-// let i = 0;
-// while (i <= 10) {
-//   console.log(i); // displays 0 to 10
-//   i++;
-// }
+let number = max(5, 7);
+console.log(number);
 
-// let i = 0;
-// while (i <= 10) {
-//   if (i === 5) break;
+function max(a, b) {
+  // if (a > b) return a;
+  // else return b;
 
-//   console.log(i); // displays 0 to 4
-//   i++;
-// }
+  // refactoring: remove else (because 'return b' is not executed, if 'return a' is executed)
+  // if (a > b) return a;
+  // return b;
 
-let i = 0;
-while (i <= 10) {
-  if (i % 2 === 0) {
-    i++;
-    continue;
-  }
-
-  console.log(i); // displays 1, 3, 5, 7, 9
-  i++;
+  // refactoring: using conditional operator
+  return a > b ? a : b;
 }
+
+// MOSH TIPS:
+// when writing code, FUNCTIONS, you should test your FUNCTIONS with different possible values
+// e.g. max(5, 7), max(7, 5), max(7, 7)
