@@ -1,15 +1,27 @@
-// use FOR-IN to iterate over the properties of an OBJECT
-const person = {
-  name: 'Mosh',
-  age: 30
-};
+// BREAK and CONTINUE that CAN CHANGE how the LOOPS BEHAVE
+// applies to ALL KIND OF LOOPS
 
-for (let key in person) console.log(key, person[key]);
+// let i = 0;
+// while (i <= 10) {
+//   console.log(i); // displays 0 to 10
+//   i++;
+// }
 
-// for-in is NOT IDEAL for ARRAY
-const colors = ['red', 'green', 'blue'];
-for (let index in colors) console.log(index, colors[index]);
+// let i = 0;
+// while (i <= 10) {
+//   if (i === 5) break;
 
-// FOR-OF is IDEAL for ARRAY (start from ECMASCRIPT 6/ ES6)
-// use FOR-OF loop to iterate over elements / items in the ARRAY
-for (let color of colors) console.log(color);
+//   console.log(i); // displays 0 to 4
+//   i++;
+// }
+
+let i = 0;
+while (i <= 10) {
+  if (i % 2 === 0) {
+    i++;
+    continue;
+  }
+
+  console.log(i); // displays 1, 3, 5, 7, 9
+  i++;
+}
