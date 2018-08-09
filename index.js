@@ -1,21 +1,26 @@
-let role = 'guest';
+console.log('Hello World - ugly way');
+console.log('Hello World - ugly way');
+console.log('Hello World - ugly way');
+console.log('Hello World - ugly way');
+console.log('Hello World - ugly way');
 
-switch (role) {
-  case 'guest':
-    console.log('Guest User');
-    break;
+// using loop
 
-  case 'moderator':
-    console.log('Moderator User');
-    break;
+// for (initialExpression; condition; incrementExpression)
+//   single statement
 
-  default:
-    console.log('Unknown User');
+// for (initialExpression; condition; incrementExpression) {
+//   multi statement
+//   multi statement
+// }
+
+// i is convention of 'index' and common convention to use in for loops
+for (let i = 0; i < 5; i++) console.log('Hello World', i);
+
+for (let i = 1; i <= 5; i++) console.log('Hello World', i);
+
+for (let i = 5; i >= 1; i--) console.log('Hello World', i);
+
+for (let i = 0; i < 5; i++) {
+  if (i % 2 !== 0) console.log('Odd Number', i);
 }
-
-// using if else is more cleaner than switch case
-// mosh personaly tend to use if else more often.
-//      switch case is kind of outdated and look a little bit ugly in mosh personal opinion
-if (role === 'guest') console.log('Guest User');
-else if (role === 'moderator') console.log('Moderator User');
-else console.log('Unknown User');
