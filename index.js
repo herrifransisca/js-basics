@@ -1,21 +1,26 @@
-const movie = {
-  title: 'a',
-  releaseYear: 2018,
-  rating: 4.5,
-  director: 'b'
-};
+console.log(sum(10));
 
-showProperties(movie);
+// Multiples of 3: 3, 6, 9
+// Multiples of 5: 5, 10
 
 // Mosh's code:
-function showProperties(obj) {
-  for (let key in obj)
-    if (typeof obj[key] === 'string') console.log(key, obj[key]);
+function sum(limit) {
+  let sum = 0;
+
+  for (let i = 0; i <= limit; i++) {
+    if (i % 3 === 0 || i % 5 === 0) sum += i;
+  }
+
+  return sum;
 }
 
 // Herri's code:
-// function showProperties(obj) {
-//   for (properties in obj) {
-//     console.log(properties, obj[properties]);
+// function sum(limit) {
+//   let total = 0;
+
+//   for (let i = 1; i <= limit; i++) {
+//     if (i % 3 === 0 || i % 5 === 0) total += i;
 //   }
+
+//   return total;
 // }
