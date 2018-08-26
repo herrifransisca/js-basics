@@ -1,13 +1,32 @@
-const circle = {
-  radius: 1
-};
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log('draw');
+    }
+  };
+}
 
-circle = {};
+const circleUsingFactoryFunction = createCircle();
 
-circle.color = 'yellow';
-circle.draw = function() {};
+function Circle(radius) {
+  this.radius;
+  this.draw = function() {
+    console.log('draw');
+  };
+}
 
-delete circle.color;
-delete circle.draw;
+const circleUsingConstructorFunction = new Circle();
 
-console.log(circle);
+let x = {};
+// let x = new Object();
+
+// using the constructor
+let a = new String(); // '', "", ``
+let b = new Boolean(); // true, false
+let c = new Number(); // 1, 2, 3, ...
+
+// using this literals is CLEANER AND SIMPLER then using the constructor
+let aa = '';
+let bb = true;
+let cc = 1;
