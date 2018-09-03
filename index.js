@@ -1,32 +1,25 @@
-function createCircle(radius) {
-  return {
-    radius,
-    draw() {
-      console.log('draw');
-    }
-  };
-}
-
-const circleUsingFactoryFunction = createCircle();
-
 function Circle(radius) {
-  this.radius;
+  this.radius = radius;
   this.draw = function() {
-    console.log('draw');
+    console.log('Draw');
   };
 }
 
-const circleUsingConstructorFunction = new Circle();
+const another = new Circle(1);
 
-let x = {};
-// let x = new Object();
+const Circle1 = new Function(
+  'radius',
+  `
+this.radius = radius;
+this.draw = function() {
+  console.log('draw');
+}
+`
+);
 
-// using the constructor
-let a = new String(); // '', "", ``
-let b = new Boolean(); // true, false
-let c = new Number(); // 1, 2, 3, ...
+Circle.call({}, 1);
+Circle.apply({}, [1, 2, 3]);
+const circle = new Circle1(1);
 
-// using this literals is CLEANER AND SIMPLER then using the constructor
-let aa = '';
-let bb = true;
-let cc = 1;
+// Circle.call(window, 1);
+// const circle = Circle1(1);
