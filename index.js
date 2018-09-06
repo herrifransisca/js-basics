@@ -1,36 +1,15 @@
-// PRIMITIVE / VALUE TYPE
-// let x = 10;
-// let y = x;
+const circle = {
+  radius: 1,
+  draw() {
+    console.log('draw');
+  }
+};
 
-// x = 20;
-// console.log(x);  // 20
-// console.log(y);  // 10
+for (let key in circle) console.log(key, circle[key]);
 
-// REFERENCE TYPE
-// let x = { value: 10 };
-// let y = x;
+for (let key of Object.keys(circle)) console.log(key);
 
-// x.value = 20;
+for (let entry of Object.entries(circle)) console.log(entry);
 
-// console.log(x); // { value: 20 }
-// console.log(y); //  { value: 20 }
-
-// ANOTHER EXAMPLE - Value / Primitive Type
-// let number = 10;
-
-// function increase(number) {
-//   number++;
-// }
-
-// increase(number);
-// console.log(number); // 10
-
-// ANOTHER EXAMPLE - Value / Primitive Type
-let obj = { value: 10 };
-
-function increase(obj) {
-  obj.value++;
-}
-
-increase(obj);
-console.log(obj); // { value: 11 }
+if ('radius' in circle) console.log('yes'); // yes
+if ('color' in circle) console.log('yes'); //
