@@ -5,11 +5,18 @@ const circle = {
   }
 };
 
-for (let key in circle) console.log(key, circle[key]);
+// 1st way
+// const another = {};
+// for (let key in circle) another[key] = circle[key];
+// Notes:
+//    another[key] = circle[key];
+//    equavalent to :
+//    another['radius'] = circle['radius'];
 
-for (let key of Object.keys(circle)) console.log(key);
+// 2nd way - Object.assign()
+// const another = Object.assign({}, circle);
 
-for (let entry of Object.entries(circle)) console.log(entry);
+// 3rd way - spread operator
+const another = { ...circle };
 
-if ('radius' in circle) console.log('yes'); // yes
-if ('color' in circle) console.log('yes'); //
+console.log(another);
