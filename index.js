@@ -1,41 +1,28 @@
-// String primitive
-let message = 'This is my first message';
+let message = 
+'This is my\n first message';
 
-// String object
-const another = new String('hi');
+message = 
+'This is my\n' + 
+'first message';
 
-console.log(message.length); // 23
+message = 
+'This is my\n' + 
+'\'first\' message';
 
-console.log(message[0]); // T
-console.log(message[1]); // h
+message = 
+`This is my
+'first' message`;
 
-console.log(message.includes('my')); // true
-console.log(message.includes('not')); // false
+const name = 'John';
+message = 'Hi ' + name + ',\n';
 
-console.log(message.startsWith('This')); // true
-console.log(message.startsWith('this')); // false
+const another =
+`Hi ${name} ${2 + 3},
 
-console.log(message.endsWith('e')); // true
+Thank you for joining my mailing list.
 
-console.log(message.indexOf('my')); // 8
+Regards,
+Mosh`;
 
-console.log(message.replace('first', 'second')); // This is my second message
-// Note that this RETURNS A NEW STRING and DOESN’T REPLACE THE ORIGINAL ONE
-console.log(message); // This is my first message
-
-console.log(message.toUpperCase());
-console.log(message.toLowerCase());
-
-message = ' This is my first message ';
-console.log(message.trim());
-console.log(message.trimLeft());
-console.log(message.trimRight());
-
-console.log(message.split(' ')); // (7) ["", "this", "is", "my", "first", "message", ""]
-
-message = "This is my 'first message";
-console.log(message); // This is my 'first message
-
-message = 'This is my\n first message';
-console.log(message); // This is my
-//  First message
+console.log(message);
+console.log(another);
