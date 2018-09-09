@@ -1,28 +1,10 @@
-let message = 
-'This is my\n first message';
+const now = new Date();
+const date1 = new Date('May 11 2018 09:00');
+const date2 = new Date(2018, 4, 11, 9);
 
-message = 
-'This is my\n' + 
-'first message';
+now.getDate();
+now.setFullYear(2017);
 
-message = 
-'This is my\n' + 
-'\'first\' message';
-
-message = 
-`This is my
-'first' message`;
-
-const name = 'John';
-message = 'Hi ' + name + ',\n';
-
-const another =
-`Hi ${name} ${2 + 3},
-
-Thank you for joining my mailing list.
-
-Regards,
-Mosh`;
-
-console.log(message);
-console.log(another);
+console.log(now.toDateString()); // Sat Sep 09 2017
+console.log(now.toTimeString()); // 20:10:29 GMT+0700 (Western Indonesia Time)
+console.log(now.toISOString()); // 2017-09-09T13:10:29.716Z
