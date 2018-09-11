@@ -1,37 +1,36 @@
-// Mosh's Code
+// Mosh's solution
+const priceRanges = [
+  { label: '$', tooltip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10 },
+  { label: '$$', tooltip: 'Moderate', minPerPerson: 11, maxPerPerson: 20 },
+  { label: '$$$', tooltip: 'Expensive', minPerPerson: 21, maxPerPerson: 50 }
+];
 
-const post = new Post('a', 'b', 'c');
+const restaurants = [{ averagePerPerson: 5 }];
 
-function Post(title, body, author) {
-  this.title = title;
-  this.body = body;
-  this.author = author;
-  this.views = 0;
-  this.comments = [];
-  this.isLive = false;
-}
+// Herri's solution
+// const priceRanges = [new PriceRange(1), new PriceRange(2), new PriceRange(3)];
 
-console.log(post);
+// console.log(priceRanges);
 
-// Herri's Code
-// const post = new Post(
-//   'a',
-//   'b',
-//   'c',
-//   10,
-//   [{ author: 'a', body: 'b' }, { author: 'c', body: 'd' }],
-//   true,
-//   false
-// );
+// function PriceRange(level) {
+//   if (level === 1) {
+//     this.priceName = 'Inexpensive';
+//     this.displayedName = '$';
+//     this.minPrice = 1;
+//     this.maxPrice = 4;
+//   }
 
-// function Post(title, body, author, views, comments, isLive, isPublished) {
-//   this.title = title;
-//   this.body = body;
-//   this.author = author;
-//   this.views = views;
-//   this.comments = comments;
-//   this.isLive = isLive;
-//   this.isPublished = isPublished;
+//   if (level === 2) {
+//     this.priceName = 'Moderate';
+//     this.displayedName = '$$';
+//     this.minPrice = 5;
+//     this.maxPrice = 7;
+//   }
+
+//   if (level === 3) {
+//     this.priceName = 'Pricey';
+//     this.displayedName = '$$$';
+//     this.minPrice = 8;
+//     this.maxPrice = 10;
+//   }
 // }
-
-// console.log(post);
