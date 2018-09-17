@@ -1,23 +1,11 @@
 const courses = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }];
 
-// find() - found
-const course = courses.find(function(course) {
-  return course.name === 'a'; // { id: 1, name: 1}
-});
+// after using arrow function
+const course = courses.find(course => course.name === 'a');
 
-// find() - not found
-const course = courses.find(function(course) {
-  return course.name === 'xyz'; // undefined
-});
-
-// findIndex() - found
-const course = courses.findIndex(function(course) {
-  return course.name === 'a'; // 0
-});
-
-// findIndex() - not found
-const course = courses.findIndex(function(course) {
-  return course.name === 'xyz'; // -1
-});
+// before using arrow function
+// const course = courses.find(function(course) {
+//   return course.name === 'a';
+// });
 
 console.log(course);
