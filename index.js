@@ -1,28 +1,23 @@
-const numbers = [1, 2, 3, 1, 4];
+const courses = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }];
 
-// #1 - if exist
-console.log(numbers.indexOf(1)); // 0
+// find() - found
+const course = courses.find(function(course) {
+  return course.name === 'a'; // { id: 1, name: 1}
+});
 
-// #2 - note the "type" (string - number)
-console.log(numbers.indexOf('1')); // -1
+// find() - not found
+const course = courses.find(function(course) {
+  return course.name === 'xyz'; // undefined
+});
 
-// #3 - if doesn't exist
-console.log(numbers.indexOf('a')); // -1
+// findIndex() - found
+const course = courses.findIndex(function(course) {
+  return course.name === 'a'; // 0
+});
 
-// #4 - little bit ugly
-console.log(numbers.indexOf(1) !== -1); // true
+// findIndex() - not found
+const course = courses.findIndex(function(course) {
+  return course.name === 'xyz'; // -1
+});
 
-// #5 - a new method achieving the same thing
-console.log(numbers.includes(1)); // true
-
-// #6 - if exist
-console.log(numbers.lastIndexOf(1)); // 3
-
-// #7 - if doesn't exist
-console.log(numbers.lastIndexOf(5)); // -1
-
-// #8 - before using SECOND PARAMETER, fromINDEX
-console.log(numbers.indexOf(1)); // 0
-
-// #9 - after using SECOND PARAMETER, fromINDEX
-console.log(numbers.indexOf(1, 2)); // 3
+console.log(course);
