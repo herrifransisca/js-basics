@@ -1,23 +1,23 @@
 let numbers = [1, 2, 3, 4];
+let another = numbers;
 
-// End
-const last = numbers.pop();
-console.log(numbers); // [1, 2, 3]
-console.log(last); // 4
-console.log('type of last:', typeof last);
+// Sol;ution 1
+// numbers = [];
+// console.log(numbers); // []
+// console.log(another); // [1, 2, 3, 4]
 
-// Beginning
-const first = numbers.shift();
-console.log(numbers); // [2, 3]
-console.log(first); // 1
-console.log('type of first:', typeof first);
+// Solution 2
+// numbers.length = 0;
+// console.log(numbers); // []
+// console.log(another); // []
 
-numbers = [1, 2, 3, 4, 5];
+// Solution 3
+// numbers.splice(0, numbers.length);
+// console.log(numbers); // []
+// console.log(another); // []
 
-// Middle
-const middle = numbers.splice(2, 1);
-console.log(numbers); // [1, 2, 4, 5]
-console.log(middle); // [3]
-
-middle.push('a');
-console.log(middle); // [3, 'a']
+// Solution 4
+let i = 0;
+while (numbers.length > 0) numbers.pop();
+console.log(numbers); // []
+console.log(another); // []
