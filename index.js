@@ -1,9 +1,19 @@
-const first = [1, 2, 3];
-const second = [4, 5, 6];
+const numbers = [1, 2, 3];
 
-// const combined = first.concat(second);
-const combined = [...first, ...second]; // [1, 2, 3, 4, 5, 6]
+for (let number of numbers) console.log(number);
+// output:
+// 1
+// 2
+// 3
 
-// add an element in between them
-// add something at the end
-const combined2 = [...first, 'a', ...second, 'b']; // [1, 2, 3, 'a', 4, 5, 6, 'b']
+numbers.forEach((number, index) => console.log(index, number));
+// output:
+// 0 1
+// 1 2
+// 2 3
+
+for (let number in numbers) console.log(number, numbers[number]);
+// output:
+// 0 1
+// 1 2
+// 2 3
