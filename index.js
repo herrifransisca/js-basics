@@ -1,19 +1,11 @@
 const numbers = [1, 2, 3];
 
-for (let number of numbers) console.log(number);
-// output:
-// 1
-// 2
-// 3
+const joined = numbers.join(',');
+console.log(joined); // 1,2,3
 
-numbers.forEach((number, index) => console.log(index, number));
-// output:
-// 0 1
-// 1 2
-// 2 3
+const message = 'This is my first message';
+const parts = message.split(' ');
+console.log(parts); // ['This', 'is', 'my', 'first', 'message']
 
-for (let number in numbers) console.log(number, numbers[number]);
-// output:
-// 0 1
-// 1 2
-// 2 3
+const combined = parts.join('-');
+console.log(combined); // This-is-my-first-message
