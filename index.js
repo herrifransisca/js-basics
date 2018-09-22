@@ -1,12 +1,13 @@
-let numbers = [1, 2, 3];
+const numbers = [1, -1, 2, 3];
 
-const allPositive = numbers.every(number => number >= 0);
+// const filtered = numbers.filter(function(value) {
+//   return value >= 0;
+// });
 
-console.log(allPositive); // true
+// arrow function
+// const filtered = numbers.filter(value => value >= 0);
 
-numbers = [1, -1, 2, 3];
-const allPositive2 = numbers.every(number => number >= 0);
-console.log(allPositive2); // false
+// we can make this code a little bit shorter
+const filtered = numbers.filter(n => n >= 0);
 
-const atLeastOnePositive = numbers.some(number => number >= 0);
-console.log(atLeastOnePositive); // true
+console.log(filtered);
