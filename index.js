@@ -1,18 +1,16 @@
-const numbers = arrayFromRange(-10, -4);
+const numbers = [1, 2, 3, 4];
 
-console.log(numbers);
+// console.log(numbers.includes(1));
+console.log(includes(numbers, 1));
 
 // mosh's solution
-function arrayFromRange(min, max) {
-  const output = [];
-  for (let i = min; i <= max; i++) output.push(i);
-  return output;
+function includes(array, searchElement) {
+  for (let element of array) if (element === searchElement) return true;
+  return false;
 }
 
 // herri's solution
-function arrayFromRange(min, max) {
-  let numbers = [];
-  for (let number = min; number <= max; number++) numbers.push(number);
-
-  return numbers;
+function includes(array, searchElement) {
+  for (let i of array) if (i === searchElement) return true;
+  return false;
 }
