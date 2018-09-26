@@ -1,29 +1,31 @@
-const numbers = [1, 2, 3, 4, 1];
+const numbers = [1, 2, 3, 4];
 
-const count = searchOccurrences(numbers, 1);
+const max = getMax(numbers);
 
-console.log(count);
+console.log(max);
 
-function searchOccurrences(array, searchElement) {
-  // let count = 0;
-  // for (let element of array) if (element === searchElement) count++;
-  // return count;
+// mosh's solution
+function getMax(array) {
+  if (array.length === 0) return undefined;
 
-  return array.reduce((accumulator, current) => {
-    const occurrence = current === searchElement ? 1 : 0;
-    console.log(accumulator, current, searchElement);
-    return accumulator + occurrence;
-  }, 0);
+  // let max = array[0];
+
+  // for (let i = 1; i < array.length; i++) if (array[i] > max) max = array[i];
+
+  // return max;
+
+  return array.reduce((a, b) => (a > b ? a : b));
 }
 
-function searchOccurrences(array, searchElement) {
-  // let occurrences = 0;
-  // for (let element of array) if (element === searchElement) occurrences++;
-  // return occurrences;
+// herri's solution
+// function getMax(array) {
+//   if (array.length === 0) return [];
 
-  return array.reduce((occurrences, currentValue) => {
-    return currentValue === searchElement
-      ? (occurrences += 1)
-      : (occurrences += 0);
-  }, 0);
-}
+//   // let max = 0;
+//   // for (let element of array) if (element > max) max = element;
+//   // return max;
+
+//   return array.reduce((max, current) => {
+//     return current > max ? (max = current) : max;
+//   });
+// }
