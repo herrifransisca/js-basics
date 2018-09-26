@@ -1,35 +1,29 @@
-const numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4, 1];
 
-const output = move(numbers, 1, -1);
+const count = searchOccurrences(numbers, 1);
 
-console.log(output);
-console.log(numbers);
+console.log(count);
 
-// mosh's solution
-function move(array, index, offset) {
-  const position = index + offset;
-  if (position >= array.length || position < 0) {
-    console.error('Invalid offset.');
-    return;
-  }
+function searchOccurrences(array, searchElement) {
+  // let count = 0;
+  // for (let element of array) if (element === searchElement) count++;
+  // return count;
 
-  const output = [...array];
-  const element = output.splice(index, 1)[0];
-  output.splice(position, 0, element);
-  return output;
+  return array.reduce((accumulator, current) => {
+    const occurrence = current === searchElement ? 1 : 0;
+    console.log(accumulator, current, searchElement);
+    return accumulator + occurrence;
+  }, 0);
 }
 
-// herri's solution
-function move(array, index, offset) {
-  if (offset >= array.length - index || offset < 0 - index) {
-    console.error('Invalid offset');
-    return;
-  }
+function searchOccurrences(array, searchElement) {
+  // let occurrences = 0;
+  // for (let element of array) if (element === searchElement) occurrences++;
+  // return occurrences;
 
-  const newArray = [...array];
-  const movedNumber = newArray.splice(index, 1);
-  const newPosition = index + offset;
-  newArray.splice(newPosition, 0, movedNumber[0]);
-
-  return newArray;
+  return array.reduce((occurrences, currentValue) => {
+    return currentValue === searchElement
+      ? (occurrences += 1)
+      : (occurrences += 0);
+  }, 0);
 }
