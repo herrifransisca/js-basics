@@ -1,17 +1,18 @@
-// Function Declaration
-function walk() {
-  console.log('walk');
+// HOISTING is the process of moving function declaration to the top of the file
+function run() {
+  console.log('run');
 }
 
-// Named Function Expression
-const jump = function jump() {
-  console.log('jump');
-};
+run();
+
+// Function Declaration
+// run();
+// function run() {
+//   console.log('run');
+// }
 
 // Anonymous Function Expression
-const run = function() {
-  console.log('run');
+walk();
+const walk = function() {
+  console.log('walk');
 };
-let move = run;
-run();
-move();
