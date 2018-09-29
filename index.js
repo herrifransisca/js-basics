@@ -1,52 +1,38 @@
-// javascript is a dynamic language
-let x = 1;
-x = 'a';
-
-// We Have the same concept in "arguments of a function"
-function sum(a, b) {
-  return a + b;
-}
-console.log(sum(1, 2)); // 3
-
-// this function have two parameters, WE CAN PASS ONLY ONE ARGUMENT.
-function sum(a, b) {
-  return a + b; // 1 + undefined
-}
-console.log(sum(1)); // NaN
-
-// The same happen if we don't pass any arguments.
-function sum(a, b) {
-  return a + b; // undefined + undefined
-}
-console.log(sum()); // NaN
-
-// In this case, WE CAN PASS, let's say "5 arguments"
-function sum(a, b) {
-  return a + b; // 1 = 2
-}
-console.log(sum(1, 2, 3, 4, 5)); // 3
-
-//a special object called ARGUMENTS
-function sum(a, b) {
-  console.log(arguments);
-  return a + b;
-}
-console.log(sum(1, 2, 3, 4, 5));
-
-// CHANGE this function to RETURN THE SUM OF ALL OF THIS ARGUMENTS - simple algorithm
-function sum(a, b) {
-  let total = 0;
-  for (let value of arguments) total += value;
-  return total;
+// REST OPERATOR
+function sum(...args) {
+  console.log(args); // [1, 2, 3, 4, 5, 10]
 }
 
-console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, 2, 3, 4, 5, 10)); // undefined
 
-// we CAN COMPLETELY REMOVE THESE PARAMETERS here
-function sum() {
-  let total = 0;
-  for (let value of arguments) total += value;
-  return total;
+// // if i remove ...
+function sum(args) {
+  console.log(args); // 1
 }
 
-console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, 2, 3, 4, 5, 10)); // undefined
+
+// reduce()
+function sum(...args) {
+  return args.reduce((a, b) => a + b);
+}
+
+console.log(sum(1, 2, 3, 4, 5, 10)); // 25
+
+// Imagine we're gonna use "this function" to calculate the "total cost of items in the shopping cart".
+// we wanna have a "discount factor"
+function sum(discount, ...prices) {
+  const total = prices.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+
+console.log(sum(0.1, 20, 30));  // 45
+
+
+// WE CANNOT HAVE PARAMETER AFTER THE REST OPERATOR
+function sum(discount, ...prices, someValues) {
+  const total = prices.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+
+console.log(sum(0.1, 20, 30, 1));  // Uncaught SyntaxError: Rest parameter must be last formal parameter
