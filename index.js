@@ -1,38 +1,67 @@
-// REST OPERATOR
-function sum(...args) {
-  console.log(args); // [1, 2, 3, 4, 5, 10]
+// The total interest we have to pay is 1750
+function interest(principal, rate, years) {
+  return ((principal * rate) / 100) * years;
 }
 
-console.log(sum(1, 2, 3, 4, 5, 10)); // undefined
+console.log(interest(10000, 3.5, 5)); // 1750
 
-// // if i remove ...
-function sum(args) {
-  console.log(args); // 1
+// 	Truthy -> we can use the logical "or operator" to give a variable the default value
+function interest(principal, rate, years) {
+  rate = rate || 3.5;
+  years = years || 5;
+
+  return ((principal * rate) / 100) * years;
 }
 
-console.log(sum(1, 2, 3, 4, 5, 10)); // undefined
+console.log(interest(10000)); // 1750
 
-// reduce()
-function sum(...args) {
-  return args.reduce((a, b) => a + b);
+// Starting from ES6 we have A CLEANER WAY to achieve the same thing.
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
 }
 
-console.log(sum(1, 2, 3, 4, 5, 10)); // 25
+console.log(interest(10000)); // 1750
 
-// Imagine we're gonna use "this function" to calculate the "total cost of items in the shopping cart".
-// we wanna have a "discount factor"
-function sum(discount, ...prices) {
-  const total = prices.reduce((a, b) => a + b);
-  return total * (1 - discount);
+// Starting from ES6 we have A CLEANER WAY to achieve the same thing.
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
 }
 
-console.log(sum(0.1, 20, 30));  // 45
+console.log(interest(10000)); // 1750
 
-
-// WE CANNOT HAVE PARAMETER AFTER THE REST OPERATOR
-function sum(discount, ...prices, someValues) {
-  const total = prices.reduce((a, b) => a + b);
-  return total * (1 - discount);
+// ONE CAVEAT here, SHOULD ALSO GIVE all the "other parameters after that" a default value
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
 }
 
-console.log(sum(0.1, 20, 30, 1));  // Uncaught SyntaxError: Rest parameter must be last formal parameter
+console.log(interest(10000)); // NaN
+
+// We get "NaN", because rate = 5, years = undefined
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
+}
+
+console.log(interest(10000, 5)); // NaN
+
+// here's a TRICK around this, we can pass "undefined"
+// REALLY UGLY
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
+}
+
+console.log(interest(10000, undefined, 5)); // 1750
+
+/*
+  So AS BEST PRACTICE, whenever you want to give a function parameter of default value, 
+    - MAKE SURE "that parameter" is the "last parameter in the list" 
+*/
+function interest(principal, years, rate = 3.5) {
+  return ((principal * rate) / 100) * years;
+}
+
+//  - or "GIVE all the parameters after that", "a default value"
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
+}
+
+console.log(interest(10000, 5)); // 1750
