@@ -1,155 +1,97 @@
-/*"value.split is not a function"
-	because "split" is a method that belongs to "string"
-	boolean don't have a "split method"
-*/
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    const parts = value.split(' ');
-    this.firstName = parts[0];
-    this.lastName = parts[1];
+const message = 'hi';
+console.log(message);
+
+// What would happen if I add this message in the code block ?
+{
+  const message = 'hi';
+}
+console.log(message); // error
+
+// This code block can be part of a FUNCTION
+function start() {
+  const message = 'hi';
+}
+console.log(message);
+
+// 	Declare a variable or a constant in a IF BLOCK
+function start() {
+  const message = 'hi';
+
+  if (true) {
+    const another = 'bye';
   }
-};
 
-person.fullName = true; // <- change string to boolean
-console.log(person); // uncaught TypeError: value.split is not a function...
+  console.log(another); // error
+}
+console.log(message);
 
-person.fullName = null; // <- change string to null
-console.log(person); // uncaught TypeError: cannot read property 'split' of null...
+// 	We have the same concept in our LOOPS
+function start() {
+  const message = 'hi';
 
-// WE NEED TO ADD "ERROR HANDLING"
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    if (typeof value !== 'string') return;
-
-    const parts = value.split(' ');
-    this.firstName = parts[0];
-    this.lastName = parts[1];
+  if (true) {
+    const another = 'bye';
   }
-};
 
-person.fullName = null;
-console.log(person);
-
-/*
-Sometimes we WANNA REPORT AN ERROR IN APPLICATION,
-	That's where WE NEED TO THROW AN EXCEPTION.
-*/
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    if (typeof value !== 'string') throw new Error('Value is not a string.');
-
-    const parts = value.split(' ');
-    this.firstName = parts[0];
-    this.lastName = parts[1];
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
   }
-};
-
-person.fullName = null;
-console.log(person);
-
-/*
-	SOMEWHERE ELSE WE NEED TO CATCH THAT EXCEPTION.
-  And QUITE OFTEN when we catch an exception, WE DISPLAY AN ERROR TO THE USER.
-  try catch block
-*/
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    if (typeof value !== 'string') throw new Error('Value is not a string.');
-
-    const parts = value.split(' ');
-    this.firstName = parts[0];
-    this.lastName = parts[1];
-  }
-};
-
-try {
-  person.fullName = null;
-} catch (e) {
-  alert(e);
+  console.log(i);
 }
 
-console.log(person);
+start();
+
+// So WE CAN HAVE TWO VARIABLES OR CONSTANTS WITH THE SAME NAME, but in different function
+function start() {
+  const message = 'hi';
+}
+
+function stop() {
+  const message = 'bye';
+}
+
+start();
+
+// What if we define a variable or constant outside of a function ?
+// Here we don't have any code blocks, so what you think is the scope of this constant ?
+// THIS CONSTANT HAVE GLOBAL SCOPE.
+// Global means CONSTANT IS ACCESSIBLE EVERYWHERE, GLOBALLY
+const color = 'red';
+
+function start() {
+  const message = 'hi';
+  console.log(color); // red
+}
+
+function stop() {
+  const message = 'bye';
+}
 
 /*
-Now let's TAKE IT TO THE NEXT LEVEL
-	change null to '' (empty string)
-	We DON’T GET ANY ERROR, but firstName = "" and lastName = undefined, IT'S NOT DESIRABLE.
-	IDEALLY, we wanna make sure that the user is typing the first name and last name. 
+	What if we have a constant WITH EXACT SAME NAME IN A FUNCTION ?
+		So LOCAL VARIABLES OR LOCAL CONSTANT in a function, TAKES PRECEDENCE OVER GLOBAL VARIABLES OR CONSTANT.
 */
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    if (typeof value !== 'string') throw new Error('Value is not a string.');
+const color = 'red';
 
-    const parts = value.split(' ');
-    this.firstName = parts[0];
-    this.lastName = parts[1];
-  }
-};
-
-try {
-  person.fullName = '';
-} catch (e) {
-  alert(e);
+function start() {
+  const message = 'hi';
+  const color = 'blue';
+  console.log(color); // blue
 }
 
-console.log(person);
-
-// 	Check the length of this array (parts)
-const person = {
-  firstName: 'Mosh',
-  lastName: 'Hamedani',
-  get fullName() {
-    return `${person.firstName} ${person.lastName}`;
-  },
-  set fullName(value) {
-    if (typeof value !== 'string') throw new Error('Value is not a string.');
-
-    const parts = value.split(' ');
-    if (parts.length !== 2) throw new Error('Enter a first and last name.');
-
-    this.firstName = parts[0];
-    this.lastName = parts[1];
-  }
-};
-
-try {
-  person.fullName = '';
-} catch (e) {
-  alert(e);
+function stop() {
+  const message = 'bye';
 }
-
-console.log(person);
 
 /*
-Basically when we throw an exception, 
-	- the line after "throw statement" ARE NOT EXECUTED,
-	- WILL JUMP OUT OF THIS METHOD     (  fullName()  )
-	- and the control will move to the catch block.     (  catch (e) {}  )
-	- Here we catch the exception and do something with it.     ( alert(e); )
-This is the basic error handling in JavaScript
+		In general you SHOULD AVOID DEFINING GLOBAL VARIABLES OR CONSTANTS,
+			§ That is consider BAD PRACTICE.
+			Let me give you a metaphor,
+				Imagine this is a toothbrush and each function is a person.
+				You don't wanna have a toothbrush that are shared with multiple people. 
+				Each person should have their own toothbrush
+				
+			§ Because THEY ARE ACCESSIBLE EVERYWHERE GLOBALLY,
+				Each function CAN ACCIDENTLY CHANGE THE VALUE and 
+        this will lead to all kinds of bugs and issues in the program
 */
