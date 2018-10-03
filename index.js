@@ -1,97 +1,62 @@
-const message = 'hi';
-console.log(message);
-
-// What would happen if I add this message in the code block ?
-{
-  const message = 'hi';
-}
-console.log(message); // error
-
-// This code block can be part of a FUNCTION
+// 	Use "let keyword"
 function start() {
-  const message = 'hi';
-}
-console.log(message);
+  for (let i = 0; i < 5; i++) console.log(i);
 
-// 	Declare a variable or a constant in a IF BLOCK
-function start() {
-  const message = 'hi';
-
-  if (true) {
-    const another = 'bye';
-  }
-
-  console.log(another); // error
-}
-console.log(message);
-
-// 	We have the same concept in our LOOPS
-function start() {
-  const message = 'hi';
-
-  if (true) {
-    const another = 'bye';
-  }
-
-  for (let i = 0; i < 5; i++) {
-    console.log(i);
-  }
-  console.log(i);
+  console.log(i); // error
 }
 
 start();
 
-// So WE CAN HAVE TWO VARIABLES OR CONSTANTS WITH THE SAME NAME, but in different function
+// Change "let" to "VAR"
 function start() {
-  const message = 'hi';
-}
+  for (var i = 0; i < 5; i++) console.log(i);
 
-function stop() {
-  const message = 'bye';
+  console.log(i); // 0 | 1 | 2 | 3 | 4 | 5
 }
 
 start();
 
-// What if we define a variable or constant outside of a function ?
-// Here we don't have any code blocks, so what you think is the scope of this constant ?
-// THIS CONSTANT HAVE GLOBAL SCOPE.
-// Global means CONSTANT IS ACCESSIBLE EVERYWHERE, GLOBALLY
-const color = 'red';
-
+// 	Let's take a look at another example:
+//  "var" -> color is accessible
 function start() {
-  const message = 'hi';
+  for (var i = 0; i < 5; i++) {
+    if (true) {
+      var color = 'red';
+    }
+  }
+
   console.log(color); // red
 }
 
-function stop() {
-  const message = 'bye';
-}
+start();
 
-/*
-	What if we have a constant WITH EXACT SAME NAME IN A FUNCTION ?
-		So LOCAL VARIABLES OR LOCAL CONSTANT in a function, TAKES PRECEDENCE OVER GLOBAL VARIABLES OR CONSTANT.
-*/
-const color = 'red';
-
+//  "let" -> color is NOT accessible
+//  THAT'S HOW MOST LANGUAGES WORK
 function start() {
-  const message = 'hi';
-  const color = 'blue';
-  console.log(color); // blue
+  for (var i = 0; i < 5; i++) {
+    if (true) {
+      let color = 'red';
+    }
+  }
+
+  console.log(color); // error
 }
 
-function stop() {
-  const message = 'bye';
-}
+start();
 
-/*
-		In general you SHOULD AVOID DEFINING GLOBAL VARIABLES OR CONSTANTS,
-			§ That is consider BAD PRACTICE.
-			Let me give you a metaphor,
-				Imagine this is a toothbrush and each function is a person.
-				You don't wanna have a toothbrush that are shared with multiple people. 
-				Each person should have their own toothbrush
-				
-			§ Because THEY ARE ACCESSIBLE EVERYWHERE GLOBALLY,
-				Each function CAN ACCIDENTLY CHANGE THE VALUE and 
-        this will lead to all kinds of bugs and issues in the program
-*/
+// the second issue is WITH GLOBAL VARIABLES
+// The "VAR" keyword attaches this color variable to the window object.
+// window.color -> 'red'
+var color = 'red';
+let age = 30;
+
+// the "let keyword" to define a global variable,
+// that global variable is NOT ATTACH to the WINDOW OBJECT
+// window.age -> undefined
+
+// 	So technically it's a global function, attached to the window object and :
+// 	THAT IS BAD PRACTICE. But how can we PREVENT THIS ?
+// window.sayHi() -> 'hi'
+function sayHi() {
+  console.log('hi');
+}
