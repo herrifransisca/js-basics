@@ -1,30 +1,36 @@
-// Mosh's code
-const circle = {
-  radius: 1,
-  get area() {
-    return Math.PI * this.radius * this.radius;
-  }
-};
+// mosh's code
+try {
+  const numbers = [1, 2, 3, 4, 1];
+  const count = countOccurences(null, 1);
+  console.log(count);
+} catch (e) {
+  console.log(e.message);
+}
 
-console.log(circle.area); // 3.141592653589793
+function countOccurences(array, searchElement) {
+  if (!Array.isArray(array)) throw new Error('Invalid array.');
 
-// Herri's code
-const circle = {
-  circleArea: 1,
-  circleRadius: 0,
-  get radius() {
-    return this.circleRadius;
-  },
-  set radius(value) {
-    this.circleRadius = value;
-  },
-  get area() {
-    return this.circleArea;
-  }
-};
+  return array.reduce((accumulator, current) => {
+    const occurences = current === searchElement ? 1 : 0;
+    return accumulator + occurences;
+  }, 0);
+}
 
-circle.radius = 10;
-console.log(circle.radius);
+// herri's code
+const numbers = [1, 2, 3, 4, 1];
 
-circle.area = 3;
-console.log(circle.area);
+try {
+  const count = countOccurences(null, 1);
+  console.log(count);
+} catch (e) {
+  console.log(e.message, e);
+}
+
+function countOccurences(array, searchElement) {
+  if (!Array.isArray(array)) throw new Error('Not Array');
+
+  return array.reduce((accumulator, current) => {
+    const occurences = current === searchElement ? 1 : 0;
+    return accumulator + occurences;
+  }, 0);
+}
