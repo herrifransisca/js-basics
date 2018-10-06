@@ -1,38 +1,30 @@
-// console.log(sum2(1, 2, 10));
-console.log(sum([1, 2, 10]));
+// Mosh's code
+const circle = {
+  radius: 1,
+  get area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
 
-// Mosh's solution
-function sum(...items) {
-  if (items.length === 1 && Array.isArray(items[0])) items = [...items[0]];
+console.log(circle.area); // 3.141592653589793
 
-  return items.reduce((a, b) => a + b);
-}
+// Herri's code
+const circle = {
+  circleArea: 1,
+  circleRadius: 0,
+  get radius() {
+    return this.circleRadius;
+  },
+  set radius(value) {
+    this.circleRadius = value;
+  },
+  get area() {
+    return this.circleArea;
+  }
+};
 
-// Herri's solution:
-function sum2(numbers) {
-  const array = Array.isArray(numbers) ? numbers : [...arguments];
-  return array.reduce((a, b) => a + b);
+circle.radius = 10;
+console.log(circle.radius);
 
-  // if (Array.isArray(numbers)) return numbers.reduce((a, b) => a + b);
-
-  // const array = [...arguments];
-  // return array.reduce((a, b) => a + b);
-
-  // let total = 0;
-  // for (let value of arguments) {
-  //   total += value;
-  // }
-  // return total;
-
-  // let sum = 0;
-  // for (let key in arguments) {
-  //   sum += Number(arguments[key]);
-  // }
-  // return sum;
-
-  // let sum = 0;
-  // for (let key of Object.entries(arguments)) {
-  //   sum += key[1];
-  // }
-  // return sum;
-}
+circle.area = 3;
+console.log(circle.area);
