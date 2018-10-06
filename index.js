@@ -1,71 +1,38 @@
-// A few different solution to change the value of "this" in a function.
-const video = {
-  title: 'a',
-  tags: ['a', 'b', 'c'],
-  showTags() {
-    this.tags.forEach(function(tag) {
-      console.log(this.title, tag);
-    }, this);
-  }
-};
+// console.log(sum2(1, 2, 10));
+console.log(sum([1, 2, 10]));
 
-video.showTags();
+// Mosh's solution
+function sum(...items) {
+  if (items.length === 1 && Array.isArray(items[0])) items = [...items[0]];
 
-// IMAGINE that "forEeach()" DOESN’T HAVE SECOND PARAMETER.
-// HOW CAN WE CHANGE THE VALUE OF "this" ?
-// ONE SIMPLE SOLUTION (1ST SOLUTION):
-const video = {
-  title: 'a',
-  tags: ['a', 'b', 'c'],
-  showTags() {
-    const self = this;
-    this.tags.forEach(function(tag) {
-      console.log(self.title, tag);
-    });
-  }
-};
-
-video.showTags();
-
-// ANOTHER APPROACH (2ND SOLUTION):
-function playVideo(a) {
-  console.log(this);
+  return items.reduce((a, b) => a + b);
 }
-playVideo.call({ name: 'Mosh' }); // { name: 'Mosh' }
-playVideo.apply({ name: 'Mosh' }); // { name: 'Mosh' }
-playVideo.bind({ name: 'Mosh' }); // nothing -> because this bind() method DOESN’T CALL "playVideo() function"
 
-const fn = playVideo.bind({ name: 'Mosh' });
-fn(); // { name: 'Mosh' }
+// Herri's solution:
+function sum2(numbers) {
+  const array = Array.isArray(numbers) ? numbers : [...arguments];
+  return array.reduce((a, b) => a + b);
 
-// Immediately call the function that is returned from the "bind method"
-playVideo.bind({ name: 'Mosh' })();
+  // if (Array.isArray(numbers)) return numbers.reduce((a, b) => a + b);
 
-// GO BACK TO THE PREVIOUS EXAMPLE,
-// Using the bind() method is the SECOND SOLUTION to solve this problem.
-const video = {
-  title: 'a',
-  tags: ['a', 'b', 'c'],
-  showTags() {
-    this.tags.forEach(
-      function(tag) {
-        console.log(this.title, tag);
-      }.bind(this)
-    );
-  }
-};
+  // const array = [...arguments];
+  // return array.reduce((a, b) => a + b);
 
-video.showTags();
+  // let total = 0;
+  // for (let value of arguments) {
+  //   total += value;
+  // }
+  // return total;
 
-/* 3RD SOLUTION:
-	There is a NEWER AND BETTER SOLUTION
-  Starting from ES6 we have "ARROW FUNCTION" */
-const video = {
-  title: 'a',
-  tags: ['a', 'b', 'c'],
-  showTags() {
-    this.tags.forEach(tag => console.log(this.title, tag));
-  }
-};
+  // let sum = 0;
+  // for (let key in arguments) {
+  //   sum += Number(arguments[key]);
+  // }
+  // return sum;
 
-video.showTags();
+  // let sum = 0;
+  // for (let key of Object.entries(arguments)) {
+  //   sum += key[1];
+  // }
+  // return sum;
+}
